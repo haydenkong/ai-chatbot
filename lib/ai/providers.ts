@@ -11,6 +11,7 @@ import {
   reasoningModel,
   titleModel,
 } from './models.test';
+import { openai } from '@ai-sdk/openai';
 
 export const myProvider = isTestEnvironment
   ? customProvider({
@@ -30,6 +31,10 @@ export const myProvider = isTestEnvironment
         }),
         'title-model': xai('grok-2-1212'),
         'artifact-model': xai('grok-2-1212'),
+        // Add OpenAI models (model ID only, no apiKey)
+        'GPT 4.1': openai('gpt-4.1-2025-04-14'),
+        'OpenAI o4 Mini': openai('o4-mini-2025-04-16'),
+        'GPT 4o': openai('gpt-4o-2024-08-06'),
       },
       imageModels: {
         'small-model': xai.image('grok-2-image'),
